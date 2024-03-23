@@ -2,6 +2,7 @@
 from app.data import EventQueue, Postgres
 from redis import Redis
 
+import logging
 import config
 
 database = Postgres(
@@ -19,3 +20,4 @@ redis = Redis(
 )
 
 events = EventQueue("spectator", redis)
+logger = logging.getLogger("processor")
