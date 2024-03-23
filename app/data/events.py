@@ -43,9 +43,7 @@ class EventQueue:
                 )
                 yield self.events[name], args, kwargs
             except KeyError:
-                self.logger.warning(
-                    f'No callback found for "{name}"'
-                )
+                pass
             except Exception as e:
                 self.logger.warning(
                     f'Failed to evaluate task: {e}'
