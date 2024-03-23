@@ -4,7 +4,7 @@ from redis import Redis
 
 import config
 
-postgres = Postgres(
+database = Postgres(
     config.POSTGRES_USER,
     config.POSTGRES_PASSWORD,
     config.POSTGRES_HOST,
