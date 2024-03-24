@@ -1,4 +1,7 @@
 
+from app.data import DBMessage, DBScore
+from app.data import messages, scores
+
 import app.session as session
 
 @session.events.register("score")
@@ -8,13 +11,28 @@ def process_score(
     player: dict,
     score: dict
 ):
-    ... # TODO
+    session.logger.info(
+        f"Processing score from {player['name']} on {server} ({checksum})..."
+    )
+    # TODO
 
 @session.events.register("message")
 def process_message(
     server: str,
-    sender: str,
+    sender_name: str,
+    sender_id: int,
     message: str,
     target: str
 ):
-    ... # TODO
+    messages.create(
+        DBMessage(
+            sender_id=sender_id,
+            sender_name=sender_name,
+            target_name=target,
+            server=server,
+            message=message
+        )
+    )
+    session.logger.info(
+        f"[#spectator-{target}] {target}: {message}"
+    )
