@@ -34,7 +34,8 @@ def calculate_ppv2(beatmap_id: int, mode: int, score: dict) -> float:
         n100 = score['c100'],
         n50 = score['c50'],
         n_misses = score['cMiss'],
-        combo = score['max_combo']
+        combo = score['max_combo'],
+        passed_objects = score['total_hits']
     )
 
     if not (result := calc.performance(map)):
