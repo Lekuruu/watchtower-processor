@@ -21,12 +21,12 @@ def beatmap(beatmap_id: int) -> Optional[Beatmap]:
 
     return Beatmap(bytes=file)
 
-def calculate_ppv2(beatmap_id: int, score: dict) -> float:
+def calculate_ppv2(beatmap_id: int, mode: int, score: dict) -> float:
     if not (map := beatmap(beatmap_id)):
         return 0.0
 
     calc = Calculator(
-        mode = score['mode'],
+        mode = mode,
         mods = score['mods'],
         n_geki = score['cGeki'],
         n_katu = score['cKatu'],
