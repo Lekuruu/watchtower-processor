@@ -56,6 +56,8 @@ def process_score(
         f"Processed score from {player['name']} on {server} ({checksum})."
     )
 
+    # TODO: Save replay to storage
+
 @session.events.register("message")
 def process_message(
     server: str,
