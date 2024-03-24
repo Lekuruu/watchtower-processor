@@ -1,5 +1,6 @@
 
 from app.data import EventQueue, Postgres
+from requests import Session
 from redis import Redis
 
 import logging
@@ -21,3 +22,4 @@ redis = Redis(
 
 events = EventQueue("spectator", redis)
 logger = logging.getLogger("processor")
+requests = Session()
