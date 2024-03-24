@@ -20,7 +20,7 @@ def process_score(
         player['status']['beatmap_id'],
         player['status']['mode'],
         score
-    ) or None
+    )
 
     score = scores.create(
         DBScore(
